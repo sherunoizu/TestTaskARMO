@@ -37,7 +37,6 @@ export const AddingPanel = () => {
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
     setUser({ ...user, [name]: value });
-    console.log(user);
   };
 
   return (
