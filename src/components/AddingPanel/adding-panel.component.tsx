@@ -8,7 +8,12 @@ import {
   Box,
   Accordion,
   AccordionSummary,
-  AccordionDetails
+  AccordionDetails,
+  FormControl,
+  InputLabel,
+  Select,
+  SelectChangeEvent,
+  MenuItem
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -36,6 +41,16 @@ export const AddingPanel = () => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const onSelectChange = (event: SelectChangeEvent<boolean>) => {
+    const { name } = event.target;
+    let value: boolean = false;
+    if (event.target.value === 'true') {
+      value = true;
+    }
+
     setUser({ ...user, [name]: value });
   };
 
@@ -85,13 +100,25 @@ export const AddingPanel = () => {
               label='Birth Date'
             />
             <TextField value={user.email} onChange={onChange} name='email' label='Email' />
-            <TextField value={user.access} onChange={onChange} name='access' label='Access' />
 
-            <Button
-              startIcon={<AddIcon />}
-              variant='outlined'
-              onClick={onClick}
-            >
+            <FormControl>
+              <InputLabel>Access</InputLabel>
+              <Select
+                labelId='access'
+                name='access'
+                id='access'
+                size='small'
+                label='Access'
+                value={user.access}
+                onChange={onSelectChange}
+              >
+                <MenuItem value='' />
+                <MenuItem value='true'>True</MenuItem>
+                <MenuItem value='false'>False</MenuItem>
+              </Select>
+            </FormControl>
+
+            <Button startIcon={<AddIcon />} variant='outlined' onClick={onClick}>
               Add
             </Button>
           </Paper>

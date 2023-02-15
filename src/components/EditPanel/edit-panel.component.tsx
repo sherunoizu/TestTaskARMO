@@ -7,7 +7,12 @@ import {
   Button,
   Accordion,
   AccordionSummary,
-  AccordionDetails
+  AccordionDetails,
+  FormControl,
+  InputLabel,
+  Select,
+  SelectChangeEvent,
+  MenuItem
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -23,6 +28,16 @@ export const EditPanel: React.FC<IEditUserPanelProps> = ({ changingUser }) => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const onSelectChange = (event: SelectChangeEvent<boolean>) => {
+    const { name } = event.target;
+    let value: boolean = false;
+    if (event.target.value === 'true') {
+      value = true;
+    }
+
     setUser({ ...user, [name]: value });
   };
 
@@ -107,13 +122,22 @@ export const EditPanel: React.FC<IEditUserPanelProps> = ({ changingUser }) => {
               name='email'
               label='Email'
             />
-            <TextField
-              sx={{ width: '100%' }}
-              value={user.access}
-              onChange={onChange}
-              name='access'
-              label='Access'
-            />
+            <FormControl sx={{ width: '100%' }}>
+              <InputLabel>Access</InputLabel>
+              <Select
+                labelId='access'
+                name='access'
+                id='access'
+                size='small'
+                label='Access'
+                value={user.access}
+                onChange={onSelectChange}
+              >
+                <MenuItem value='' />
+                <MenuItem value='true'>True</MenuItem>
+                <MenuItem value='false'>False</MenuItem>
+              </Select>
+            </FormControl>
           </Paper>
           <Button
             startIcon={<EditIcon />}
