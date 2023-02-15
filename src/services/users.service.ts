@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const useUserService = () => {
   const apiBase = 'https://retoolapi.dev';
-  const apiDB = 'eqsQ4S';
+  const apiDB = 'TGuHPX';
 
   const getAllUsersOnPage = async (limit = 10, page = 1) => {
     const response = await axios.get(`${apiBase}/${apiDB}/users`, {
