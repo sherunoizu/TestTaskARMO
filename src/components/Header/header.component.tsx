@@ -20,7 +20,7 @@ export const Header = () => {
       display='flex'
       flexDirection='column'
       gap='10px'
-      width='400px'
+      width={{md: '400px', xs: '250px'}}
       sx={{ p: 2, border: '1px dashed grey', borderRadius: 2 }}
     >
       <Typography

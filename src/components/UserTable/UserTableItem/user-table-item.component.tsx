@@ -25,11 +25,10 @@ export const UserTableItem: React.FC<IUser> = ({
     <Paper
       elevation={3}
       sx={{
-        minHeight: '150px',
-        minWidth: '350px',
+        minHeight: { md: '150px', xs: '100px' },
+        minWidth: { md: '350px', xs: '270px' },
         marginTop: '12px',
-        marginLeft: '10px',
-        padding: '10px 20px',
+        padding: { md: '10px 20px', xs: '5px' },
         borderRadius: 2,
         display: 'flex',
         justifyContent: 'space-between',
@@ -42,24 +41,44 @@ export const UserTableItem: React.FC<IUser> = ({
           variant='h6'
           component='h6'
           gutterBottom
-          sx={{ cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}
+          sx={{ fontSize: { md: '13px', xs: '11px' }, fontWeight: 'bold' }}
         >
           {id}
         </Typography>
-        <Typography variant='subtitle1' component='div' gutterBottom>
+        <Typography
+          variant='subtitle1'
+          component='div'
+          gutterBottom
+          fontSize={{ md: '13px', xs: '11px' }}
+        >
           {`${firstName} ${lastName}`}
         </Typography>
-        <Typography variant='subtitle1' component='div' gutterBottom>
+        <Typography
+          variant='subtitle1'
+          component='div'
+          gutterBottom
+          fontSize={{ md: '13px', xs: '11px' }}
+        >
           {email}
         </Typography>
-        <Typography variant='subtitle1' component='div' gutterBottom>
+        <Typography
+          variant='subtitle1'
+          component='div'
+          gutterBottom
+          fontSize={{ md: '13px', xs: '11px' }}
+        >
           {birthDate}
         </Typography>
-        <Typography variant='subtitle1' component='div' gutterBottom>
+        <Typography
+          variant='subtitle1'
+          component='div'
+          gutterBottom
+          fontSize={{ md: '13px', xs: '11px' }}
+        >
           {access ? <AllowedIcon /> : <DeniedIcon />}
         </Typography>
       </Box>
-      <Stack spacing={10} direction='column'>
+      <Stack spacing={{ md: 10, xs: 5 }} direction='column'>
         <IconButton onClick={() => selectUserForEdit(id)} color='primary' aria-label='delete'>
           <EditIcon />
         </IconButton>

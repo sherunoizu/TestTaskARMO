@@ -30,11 +30,10 @@ export const EditPanel: React.FC<IEditUserPanelProps> = ({ changingUser }) => {
     <Paper
       elevation={3}
       sx={{
-        minHeight: '150px',
-        minWidth: '350px',
+        minHeight: { md: '150px', xs: '100px' },
+        minWidth: { md: '350px', xs: '270px' },
         marginTop: '12px',
-        marginLeft: '10px',
-        padding: '10px 20px',
+        padding: { md: '10px 20px', xs: '5px' },
         borderRadius: 2,
         display: 'flex',
         justifyContent: 'space-between',

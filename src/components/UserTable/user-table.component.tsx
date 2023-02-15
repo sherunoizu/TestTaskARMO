@@ -53,7 +53,7 @@ export const UserTable = () => {
               <EditPanel key={id} changingUser={user} />
             </Grid>
           ) : (
-            <Grid item xs={6} key={id}>
+            <Grid item xs={12} md={6} key={id}>
               <UserTableItem
                 id={id}
                 email={email}
